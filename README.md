@@ -34,7 +34,7 @@ docker build -t andresvidal/rpi3-mongodb3 .
 
 ## Run
 
-###Starting MongoDB with Auth enabled. 
+### Starting MongoDB with Auth enabled. 
 
 **First Read [How to setup auth in MongoDB 3.0 Properly](https://medium.com/@matteocontrini/how-to-setup-auth-in-mongodb-3-0-properly-86b60aeef7e8)**
 
@@ -97,7 +97,7 @@ Read more on how to [Grant User Roles](https://docs.mongodb.com/manual/reference
 mongodb://youruser:yourpassword@localhost/yourdatabase
 ```
 
-###Starting MongoDB with REST enabled.
+### Starting MongoDB with REST enabled.
 
 ```
 docker run -d \
