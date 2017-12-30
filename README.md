@@ -70,9 +70,9 @@ Check the user has been created successfully
 > db.auth("admin", "adminpassword")
 ```
 
-Restart Container to ensure policies have applied. **NOTE:** delete `mongod.lock` after shuting down mongdb
+Restart Container to ensure policies have applied. **NOTE:** delete `mongod.lock` after shuting down container.
 
-**TODO:** update docker entry script to allow SIGNT to gracefully reboot MongoDB on stop/restart container.
+**\#TODO:** update docker entry script to allow SIGNT to gracefully reboot MongoDB on stop/restart container.
 
 ```
 $ docker stop rpi3-mongodb3
