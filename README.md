@@ -50,17 +50,23 @@ andresvidal/rpi3-mongodb3:latest \
 mongod --auth
 ```
 
-Add the initial Admin User
+Add the initial Admin User. Replace `[username]` and `[password]`
+
+**From CLI**
+
+```
+# creating a root user
+
+$ docker exec -it rpi3-mongodb3 mongo admin --eval "db.createUser({user: '[username]', pwd: '[password]', roles:[{role:'root',db:'admin'}]});"
+```
+
+**From Container's terminal**
 
 ```
 $ docker exec -it rpi3-mongodb3 mongo admin
 
 connecting to: admin
-```
 
-Replace `[username]` and `[password]`
-
-```
 > db.createUser({ user: "[username]", pwd: "[password]", roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] })
 ```
 
@@ -70,13 +76,12 @@ Check the user has been created successfully
 > db.auth("admin", "adminpassword")
 ```
 
-Restart Container to ensure policies have applied. **NOTE:** delete `mongod.lock` after shuting down container.
+Restart Container to ensure policies have applied.
 
-**\#TODO:** update docker entry script to allow SIGNT to gracefully reboot MongoDB on stop/restart container.
+**\#TODO:** update docker entry script to allow SIGINT to gracefully stop MongoDB on stop/restart container.
 
 ```
-$ docker stop rpi3-mongodb3
-$ rm /data/db/mongod.lock
+$ docker kill --signal=SIGINT rpi3-mongodb3
 $ docker start rpi3-mongodb3
 ```
 
