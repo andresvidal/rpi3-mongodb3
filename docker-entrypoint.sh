@@ -5,7 +5,6 @@ set -x
 
 if [ "$1" = 'mongod' ]; then
 
-    #exec gosu postgres "$@"
     #exec /sbin/tini -- -g /usr/bin/mongod
     exec /usr/bin/mongod 
 fi
