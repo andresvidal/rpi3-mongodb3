@@ -36,6 +36,10 @@ WORKDIR /data
 EXPOSE 27017
 EXPOSE 28017
 
+# make sure that mongod performs a clean shutdown
+# when container is stopped
+STOPSIGNAL SIGINT
+
 #ENTRYPOINT ["/sbin/tini", "--"]
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["mongod"] 
