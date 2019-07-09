@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-trap 'kill -2 1; wait 1' SIGTERM
+trap 'kill -2 1; wait 1' SIGTERM SIGINT
 
 # if [ "$1" = 'mongod' ]; then
 #     #exec /sbin/tini -- -g /usr/bin/mongod
